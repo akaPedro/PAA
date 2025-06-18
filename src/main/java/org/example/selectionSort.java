@@ -1,16 +1,17 @@
-import java.util.Arrays;
 import java.util.Random;
 
-public static void bubbleSort(int[] arr) {
+public static void selectionSort(int[] arr) {
     int n = arr.length;
     for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
             }
         }
+        int temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
     }
 }
 
@@ -26,17 +27,15 @@ public static int[] gerarVetorAleatorio(int tamanho) {
 }
 
 public void main() {
-
-    int[] vec=gerarVetorAleatorio(10);
+    int[] vec = gerarVetorAleatorio(200000);
     long startTime = System.currentTimeMillis();
-    bubbleSort(vec);
+    selectionSort(vec);
     long endTime = System.currentTimeMillis();
     System.out.println("Tempo: " + (endTime - startTime) + " ms");
 
 //    for (int i = 0; i < vec.length; i++) {
 //        System.out.print(vec[i] + " ");
 //    }
-
 
 }
 
