@@ -27,7 +27,7 @@ public static int[] gerarVetorAleatorio(int tamanho) {
 }
 
 public void main() {
-    int[] vec = gerarVetorAleatorio(500000);
+    int[] vec = gerarVetorAleatorio(10);
     long startTime = System.currentTimeMillis();
     selectionSort(vec);
     long endTime = System.currentTimeMillis();

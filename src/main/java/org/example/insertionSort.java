@@ -26,14 +26,14 @@ public static int[] gerarVetorAleatorio(int tamanho) {
 }
 
 public void main() {
-    int[] vec = gerarVetorAleatorio(10);
+    int[] vec = gerarVetorAleatorio(1000000);
     long startTime = System.currentTimeMillis();
     insertionSort(vec);
     long endTime = System.currentTimeMillis();
     System.out.println("Tempo: " + (endTime - startTime) + " ms");
 
-    for (int i = 0; i < vec.length; i++) {
-        System.out.print(vec[i] + " ");
-    }
+//    for (int i = 0; i < vec.length; i++) {
+//        System.out.print(vec[i] + " ");
+//    }
 }
 
