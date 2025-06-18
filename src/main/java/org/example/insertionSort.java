@@ -1,17 +1,16 @@
+import java.sql.SQLOutput;
 import java.util.Random;
 
-public static void selectionSort(int[] arr) {
+public static void insertionSort(int[] arr) {
     int n = arr.length;
-    for (int i = 0; i < n - 1; i++) {
-        int minIndex = i;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] < arr[minIndex]) {
-                minIndex = j;
-            }
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
         }
-        int temp = arr[i];
-        arr[i] = arr[minIndex];
-        arr[minIndex] = temp;
+        arr[j + 1] = key;
     }
 }
 
@@ -27,15 +26,14 @@ public static int[] gerarVetorAleatorio(int tamanho) {
 }
 
 public void main() {
-    int[] vec = gerarVetorAleatorio(500000);
+    int[] vec = gerarVetorAleatorio(10);
     long startTime = System.currentTimeMillis();
-    selectionSort(vec);
+    insertionSort(vec);
     long endTime = System.currentTimeMillis();
     System.out.println("Tempo: " + (endTime - startTime) + " ms");
 
-//    for (int i = 0; i < vec.length; i++) {
-//        System.out.print(vec[i] + " ");
-//    }
-
+    for (int i = 0; i < vec.length; i++) {
+        System.out.print(vec[i] + " ");
+    }
 }
 
